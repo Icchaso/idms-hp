@@ -1,20 +1,45 @@
+"use client";
+
 import Link from "next/link";
 import Image from "next/image";
+import { useEffect, useState } from "react";
 import { Container } from "./Container";
 import { MobileMenu } from "./MobileMenu";
 import { navigation, site } from "@/content/site";
 import { Button } from "@/components/ui/Button";
+import { cn } from "@/lib/utils";
 
 /**
  * 全ページ共通ヘッダー。
  * - PC: ロゴ + 横並びナビ + お問い合わせCTA
  * - SP: ロゴ + ハンバーガーメニュー（MobileMenu に委譲）
+ *
+ * スクロールに応じて影と背景の濃さが変化する。
  */
 export function Header() {
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 20);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
   return (
-    <header className="sticky top-0 z-30 w-full bg-white/95 backdrop-blur supports-[backdrop-filter]:bg-white/80 border-b border-navy-100">
+    <header
+      className={cn(
+        "sticky top-0 z-30 w-full bg-white/95 backdrop-blur supports-backdrop-filter:bg-white/80 border-b transition-all duration-300",
+        scrolled ? "border-navy-200 shadow-[0_2px_20px_rgba(11,37,69,0.06)]" : "border-navy-100",
+      )}
+    >
       <Container>
-        <div className="flex items-center justify-between h-16 lg:h-20">
+        <div
+          className={cn(
+            "flex items-center justify-between transition-all duration-300",
+            scrolled ? "h-14 lg:h-16" : "h-16 lg:h-20",
+          )}
+        >
           {/* ロゴ */}
           <Link
             href="/"
@@ -27,7 +52,10 @@ export function Header() {
               width={48}
               height={48}
               priority
-              className="h-10 w-auto lg:h-12"
+              className={cn(
+                "w-auto transition-all duration-300 group-hover:scale-105",
+                scrolled ? "h-9 lg:h-10" : "h-10 lg:h-12",
+              )}
             />
             <span className="hidden sm:flex flex-col leading-tight">
               <span className="font-serif text-sm lg:text-base font-bold text-navy-900 tracking-wider">
@@ -46,7 +74,7 @@ export function Header() {
                 <li key={item.href}>
                   <Link
                     href={item.href}
-                    className="text-sm text-navy-900 hover:text-gold-600 transition-colors tracking-wider"
+                    className="nav-link text-sm text-navy-900 hover:text-gold-600 transition-colors tracking-wider"
                   >
                     {item.label}
                   </Link>

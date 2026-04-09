@@ -25,7 +25,7 @@ export function Timeline({ items, className }: TimelineProps) {
           {/* マーカー */}
           <span
             aria-hidden="true"
-            className="absolute left-1.5 sm:left-2.5 top-2 h-3 w-3 rounded-full border-2 border-gold-500 bg-white"
+            className="absolute left-1.5 sm:left-2.5 top-2 h-3 w-3 rounded-full border-2 border-gold-500 bg-white pulse-dot"
           />
           <div className="flex flex-col gap-2">
             <span className="font-serif text-sm font-semibold tracking-wider text-gold-600">
