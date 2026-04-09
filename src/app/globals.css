@@ -1,26 +1,80 @@
 @import "tailwindcss";
 
+@theme {
+  /* === ブランドカラー === */
+  --color-navy-50: #f0f4f9;
+  --color-navy-100: #d8e0ec;
+  --color-navy-200: #b1c0d7;
+  --color-navy-300: #7e94b8;
+  --color-navy-400: #4d6993;
+  --color-navy-500: #2d4a76;
+  --color-navy-600: #1c3a63;
+  --color-navy-700: #13345f;
+  --color-navy-800: #0b2545;
+  --color-navy-900: #0b2545;
+  --color-navy-950: #061a33;
+
+  --color-gold-50: #fdf8eb;
+  --color-gold-100: #f5ecd7;
+  --color-gold-200: #ebd9a8;
+  --color-gold-300: #dec27a;
+  --color-gold-400: #d3b260;
+  --color-gold-500: #c9a14a;
+  --color-gold-600: #a8853a;
+  --color-gold-700: #7f652b;
+
+  --color-ink: #1a1a1a;
+  --color-mute: #4b5563;
+  --color-snow: #f7f8fa;
+
+  /* === フォント === */
+  --font-sans: var(--font-noto-sans-jp), "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Yu Gothic", Meiryo, sans-serif;
+  --font-serif: var(--font-noto-serif-jp), "Hiragino Mincho ProN", "Yu Mincho", "Noto Serif", serif;
+
+  /* === コンテナ === */
+  --container-content: 1200px;
+}
+
+/* === ベース === */
 :root {
   --background: #ffffff;
-  --foreground: #171717;
+  --foreground: var(--color-ink);
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans);
+  font-feature-settings: "palt";
+  letter-spacing: 0.02em;
+  line-height: 1.8;
+}
+
+/* リンクのデフォルト色は付けない（コンポーネント側で制御） */
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* 見出しの行間 */
+h1, h2, h3, h4, h5, h6 {
+  line-height: 1.4;
+  letter-spacing: 0.04em;
+}
+
+/* スクロールバー軽量化（Webkit） */
+::selection {
+  background: var(--color-navy-900);
+  color: #fff;
+}
+
+/* フォーカスリング */
+:focus-visible {
+  outline: 2px solid var(--color-navy-700);
+  outline-offset: 2px;
 }
