@@ -29,12 +29,12 @@ export function MobileMenu() {
     <>
       <button
         type="button"
-        aria-label={open ? "メニューを閉じる" : "メニューを開く"}
+        aria-label="メニューを開く"
         aria-expanded={open}
-        onClick={() => setOpen((v) => !v)}
+        onClick={() => setOpen(true)}
         className="lg:hidden inline-flex items-center justify-center w-10 h-10 text-navy-900 hover:bg-navy-50 transition-colors"
       >
-        {open ? <X size={22} /> : <Menu size={22} />}
+        <Menu size={22} />
       </button>
 
       <div
@@ -45,6 +45,15 @@ export function MobileMenu() {
         aria-hidden={!open}
       >
         <div className="flex flex-col h-full pt-20 px-8 pb-8">
+          <button
+            type="button"
+            aria-label="メニューを閉じる"
+            onClick={() => setOpen(false)}
+            className="absolute top-4 right-4 inline-flex items-center justify-center w-10 h-10 text-navy-900 hover:bg-navy-50 transition-colors"
+          >
+            <X size={22} />
+          </button>
+
           <nav>
             <ul className="flex flex-col gap-2">
               {navigation.map((item) => (
