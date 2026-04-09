@@ -7,13 +7,13 @@ type Size = "sm" | "md" | "lg";
 
 const variantClasses: Record<Variant, string> = {
   primary:
-    "bg-navy-900 text-white hover:bg-navy-950 border border-navy-900 hover:border-navy-950",
+    "bg-navy-900 text-white hover:bg-navy-950 border border-navy-900 hover:border-navy-950 hover:shadow-[0_8px_24px_-8px_rgba(11,37,69,0.5)]",
   outline:
-    "bg-transparent text-navy-900 border border-navy-900 hover:bg-navy-900 hover:text-white",
+    "bg-transparent text-navy-900 border border-navy-900 hover:bg-navy-900 hover:text-white hover:shadow-[0_8px_24px_-8px_rgba(11,37,69,0.4)]",
   ghost:
     "bg-transparent text-navy-900 border border-transparent hover:bg-navy-50",
   gold:
-    "bg-gold-500 text-navy-950 border border-gold-500 hover:bg-gold-600 hover:border-gold-600",
+    "shimmer bg-gold-500 text-navy-950 border border-gold-500 hover:bg-gold-600 hover:border-gold-600 hover:shadow-[0_8px_24px_-8px_rgba(201,161,74,0.7)]",
 };
 
 const sizeClasses: Record<Size, string> = {
@@ -23,7 +23,7 @@ const sizeClasses: Record<Size, string> = {
 };
 
 const baseClasses =
-  "inline-flex items-center justify-center gap-2 font-medium tracking-wider transition-colors duration-200 rounded-none";
+  "relative inline-flex items-center justify-center gap-2 font-medium tracking-wider transition-all duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] rounded-none hover:-translate-y-0.5";
 
 type CommonProps = {
   variant?: Variant;
