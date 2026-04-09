@@ -13,7 +13,7 @@ export function Hero() {
   return (
     <section className="relative overflow-hidden bg-navy-900 text-white">
       {/* 背景の装飾円（ゴールド・ゆっくり回転） */}
-      <div className="absolute inset-0 opacity-[0.06]" aria-hidden="true">
+      <div className="absolute inset-0 opacity-[0.10]" aria-hidden="true">
         <div className="absolute -top-32 -right-32 w-120 h-120 rounded-full border border-gold-500 animate-slow-spin" />
         <div className="absolute -top-16 -right-16 w-80 h-80 rounded-full border border-gold-500 animate-slow-spin-reverse" />
       </div>
@@ -70,7 +70,7 @@ export function Hero() {
                 width={320}
                 height={320}
                 priority
-                className="relative bg-white/95 p-6 rounded-full w-50 h-50 sm:w-60 sm:h-60 lg:w-70 lg:h-70 object-contain animate-breathe"
+                className="relative bg-white/95 p-6 rounded-full w-50 h-50 sm:w-60 sm:h-60 lg:w-70 lg:h-70 object-contain"
               />
             </div>
           </div>

@@ -32,6 +32,8 @@ export function CountUp({ value, duration = 1600, threshold = 0.5 }: CountUpProp
       return;
     }
 
+    let raf = 0;
+
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting && !startedRef.current) {
@@ -39,7 +41,6 @@ export function CountUp({ value, duration = 1600, threshold = 0.5 }: CountUpProp
           observer.disconnect();
 
           const start = performance.now();
-          let raf = 0;
           const tick = (now: number) => {
             const elapsed = now - start;
             const progress = Math.min(elapsed / duration, 1);
@@ -53,14 +54,16 @@ export function CountUp({ value, duration = 1600, threshold = 0.5 }: CountUpProp
             }
           };
           raf = requestAnimationFrame(tick);
-          return () => cancelAnimationFrame(raf);
         }
       },
       { threshold },
     );
 
     observer.observe(el);
-    return () => observer.disconnect();
+    return () => {
+      observer.disconnect();
+      if (raf) cancelAnimationFrame(raf);
+    };
   }, [value, duration, threshold]);
 
   return <span ref={ref}>{current}</span>;
