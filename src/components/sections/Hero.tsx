@@ -57,11 +57,6 @@ export function Hero() {
 
           <div className="lg:col-span-5 flex justify-center lg:justify-end hero-fade-up hero-fade-up-6">
             <div className="relative w-72 h-72 sm:w-88 sm:h-88 lg:w-md lg:h-112 flex items-center justify-center">
-              {/* 背後のソフトな金色オーラ（ロゴの威厳を引き立てる） */}
-              <span
-                aria-hidden="true"
-                className="absolute inset-8 rounded-full bg-gold-300/10 blur-3xl"
-              />
               {/* 外周の金色リング（ゆっくり回転） */}
               <span
                 aria-hidden="true"
@@ -77,15 +72,24 @@ export function Hero() {
                 aria-hidden="true"
                 className="absolute inset-12 rounded-full border border-gold-400/15"
               />
-              {/* 学会エンブレム（透過PNG・装飾リング内に静かに鎮座） */}
-              <Image
-                src="/images/logo-mark.png"
-                alt={`${site.name} ロゴ`}
-                width={640}
-                height={640}
-                priority
-                className="relative w-60 h-60 sm:w-76 sm:h-76 lg:w-88 lg:h-88 object-contain drop-shadow-[0_18px_40px_rgba(201,161,74,0.28)]"
-              />
+
+              {/* 学会エンブレムのメダリオン（白JPGを正円クロップし金縁＋ソフトグロウで紋章化） */}
+              <div className="relative w-56 h-56 sm:w-72 sm:h-72 lg:w-84 lg:h-84">
+                {/* 背後のゴールドグロウ（メダリオンを浮かせる） */}
+                <span
+                  aria-hidden="true"
+                  className="absolute -inset-4 rounded-full bg-gold-300/12 blur-2xl"
+                />
+                {/* メダリオン本体（白円盤＋金縁＋立体影） */}
+                <Image
+                  src="/images/logo-mark.jpg"
+                  alt={`${site.name} ロゴ`}
+                  width={640}
+                  height={640}
+                  priority
+                  className="relative w-full h-full rounded-full object-cover ring-[3px] ring-gold-400/80 shadow-[0_30px_70px_-20px_rgba(0,0,0,0.7),0_0_0_1px_rgba(201,161,74,0.25)]"
+                />
+              </div>
             </div>
           </div>
         </div>
