@@ -1,6 +1,9 @@
 import type { MetadataRoute } from "next";
 import { site } from "@/content/site";
 
+// 静的エクスポート時に必要
+export const dynamic = "force-static";
+
 /**
  * sitemap.xml を自動生成。
  * 新しいページを追加したら、ここの routes 配列にも追記する。

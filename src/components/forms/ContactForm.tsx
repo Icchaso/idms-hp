@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -9,22 +8,24 @@ import { contactSchema, categoryLabels, type ContactFormValues } from "@/lib/val
 import { FormField } from "./FormField";
 import { Button } from "@/components/ui/Button";
 import { cn } from "@/lib/utils";
+import { site } from "@/content/site";
 
 const inputClass =
   "w-full px-4 py-3 bg-white border border-navy-200 text-ink text-sm focus:outline-none focus:border-navy-700 transition-colors";
 
 /**
- * お問い合わせフォーム本体。
- * クライアントで zod バリデーション → /api/contact に POST → /contact/thanks に遷移。
+ * お問い合わせフォーム本体（preview-static ブランチ版）。
+ * 静的ホスティング (Surge) ではバックエンドが無いため、送信ボタンを押すと
+ * プレビュー版である旨を alert で表示します。
+ * 本番（main ブランチ）では /api/contact 経由で Resend に送信されます。
  */
 export function ContactForm() {
-  const router = useRouter();
-  const [submitError, setSubmitError] = useState<string | null>(null);
+  const [previewNotice, setPreviewNotice] = useState(false);
 
   const {
     register,
     handleSubmit,
-    formState: { errors, isSubmitting },
+    formState: { errors },
   } = useForm<ContactFormValues>({
     resolver: zodResolver(contactSchema),
     defaultValues: {
@@ -39,29 +40,30 @@ export function ContactForm() {
     },
   });
 
-  const onSubmit = async (values: ContactFormValues) => {
-    setSubmitError(null);
-    try {
-      const res = await fetch("/api/contact", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(values),
-      });
-
-      if (!res.ok) {
-        const data = (await res.json().catch(() => ({}))) as { error?: string };
-        throw new Error(data.error ?? "送信に失敗しました。時間をおいて再度お試しください。");
-      }
-
-      router.push("/contact/thanks");
-    } catch (err) {
-      const message = err instanceof Error ? err.message : "送信に失敗しました。";
-      setSubmitError(message);
+  const onSubmit = () => {
+    setPreviewNotice(true);
+    if (typeof window !== "undefined") {
+      window.alert(
+        `これはプレビュー版のサイトのため、お問い合わせの送信機能は無効化されています。\n\nお急ぎの場合は ${site.email} までメールでご連絡ください。`,
+      );
     }
   };
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-6" noValidate>
+      <div
+        role="note"
+        className="border-l-4 border-gold-500 bg-gold-50 px-4 py-3 text-sm text-navy-900 leading-relaxed"
+      >
+        <strong className="font-bold">プレビュー版について：</strong>{" "}
+        このサイトはプレビュー用のため、お問い合わせフォームの送信機能は無効化されています。
+        お急ぎの場合は{" "}
+        <a href={`mailto:${site.email}`} className="underline hover:text-gold-700">
+          {site.email}
+        </a>{" "}
+        までメールでご連絡ください。
+      </div>
+
       {/* ハニーポット（隠しフィールド） */}
       <div className="hidden" aria-hidden="true">
         <label htmlFor="website">Website</label>
@@ -166,18 +168,22 @@ export function ContactForm() {
         </label>
       </FormField>
 
-      {submitError && (
+      {previewNotice && (
         <div
           role="alert"
-          className="border border-red-300 bg-red-50 text-red-800 text-sm px-4 py-3"
+          className="border border-gold-500 bg-gold-50 text-navy-900 text-sm px-4 py-3"
         >
-          {submitError}
+          このサイトはプレビュー版のため送信できません。
+          <a href={`mailto:${site.email}`} className="underline ml-1 hover:text-gold-700">
+            {site.email}
+          </a>{" "}
+          までメールでご連絡ください。
         </div>
       )}
 
       <div className="pt-4">
         <Button type="submit" variant="primary" size="lg" className="w-full sm:w-auto">
-          {isSubmitting ? "送信中..." : "送信する"}
+          送信する（プレビュー版）
         </Button>
       </div>
     </form>
