@@ -24,12 +24,12 @@ export function Hero() {
             <span className="font-serif text-xs sm:text-sm uppercase tracking-[0.3em] text-gold-300 hero-fade-up hero-fade-up-1">
               {site.nameEn}
             </span>
-            <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight hero-fade-up hero-fade-up-2">
-              東洋医学と西洋医学の融合で、
+            <h1 className="font-serif text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold leading-tight hero-fade-up hero-fade-up-2">
+              東洋・西洋医学の融合で、
               <br />
-              <span className="text-gold-300">治療家と人々の健康</span>
+              <span className="text-gold-300">治療家と人々の健康</span>を
               <br />
-              を次のステージへ。
+              次のステージへ。
             </h1>
             <span
               className="block h-px w-16 bg-gold-500 hero-fade-up hero-fade-up-3"
