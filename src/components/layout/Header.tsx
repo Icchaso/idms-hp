@@ -55,14 +55,14 @@ export function Header() {
             className="flex items-center gap-3 group"
           >
             <Image
-              src="/images/logo.png"
-              alt=""
-              width={48}
-              height={48}
+              src="/images/logo-mark.png"
+              alt={site.name}
+              width={96}
+              height={96}
               priority
               className={cn(
-                "w-auto transition-all duration-300 group-hover:scale-105",
-                scrolled ? "h-9 lg:h-10" : "h-10 lg:h-12",
+                "object-contain transition-all duration-300 group-hover:scale-105",
+                scrolled ? "h-10 w-10 lg:h-11 lg:w-11" : "h-11 w-11 lg:h-14 lg:w-14",
               )}
             />
             <span className="hidden sm:flex flex-col leading-tight">

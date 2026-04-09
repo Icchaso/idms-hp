@@ -7,7 +7,8 @@ import { site } from "@/content/site";
  * TOPヒーロー。学会の理念を1ステートメントで提示し、
  * 信頼感のある左テキスト・右ロゴ／モチーフのレイアウト。
  *
- * テキストは順次フェードイン、装飾円はゆっくり回転、ロゴは呼吸する。
+ * テキストは順次フェードイン、装飾の金色リングはゆっくり回転、
+ * ロゴ自体は静止して荘厳さを保つ（学会紋章としての品位を優先）。
  */
 export function Hero() {
   return (
@@ -55,22 +56,35 @@ export function Hero() {
           </div>
 
           <div className="lg:col-span-5 flex justify-center lg:justify-end hero-fade-up hero-fade-up-6">
-            <div className="relative w-65 h-65 sm:w-80 sm:h-80 lg:w-95 lg:h-95 flex items-center justify-center">
+            <div className="relative w-72 h-72 sm:w-88 sm:h-88 lg:w-md lg:h-112 flex items-center justify-center">
+              {/* 背後のソフトな金色オーラ（ロゴの威厳を引き立てる） */}
+              <span
+                aria-hidden="true"
+                className="absolute inset-8 rounded-full bg-gold-300/10 blur-3xl"
+              />
+              {/* 外周の金色リング（ゆっくり回転） */}
               <span
                 aria-hidden="true"
                 className="absolute inset-0 rounded-full border border-gold-300/30 animate-slow-spin"
               />
+              {/* 内周の金色リング（逆回転） */}
               <span
                 aria-hidden="true"
                 className="absolute inset-6 rounded-full border border-gold-300/20 animate-slow-spin-reverse"
               />
+              {/* 金箔の細リング（静止・装飾の締め） */}
+              <span
+                aria-hidden="true"
+                className="absolute inset-12 rounded-full border border-gold-400/15"
+              />
+              {/* 学会エンブレム（透過PNG・装飾リング内に静かに鎮座） */}
               <Image
-                src="/images/logo.png"
+                src="/images/logo-mark.png"
                 alt={`${site.name} ロゴ`}
-                width={320}
-                height={320}
+                width={640}
+                height={640}
                 priority
-                className="relative bg-white/95 p-6 rounded-full w-50 h-50 sm:w-60 sm:h-60 lg:w-70 lg:h-70 object-contain"
+                className="relative w-60 h-60 sm:w-76 sm:h-76 lg:w-88 lg:h-88 object-contain drop-shadow-[0_18px_40px_rgba(201,161,74,0.28)]"
               />
             </div>
           </div>
