@@ -84,3 +84,96 @@ export const stats = [
   { value: "週4", unit: "回", label: "ZOOM勉強会" },
   { value: "267", unit: "万円", label: "1日最高売上実績" },
 ] as const;
+
+/**
+ * 検査機器 OligoScan の詳細情報。
+ * 事業の中核である「検査機器の活用と栄養学講習」の根幹をなす機器。
+ */
+export const oligoScan = {
+  name: "OligoScan（オリゴスキャン）",
+  tagline: "手のひらに光をあてるだけで、体内のミネラルと有害金属を測定",
+  description:
+    "手のひらに光をあてるだけで、体内の必須ミネラル20元素と有害金属14元素を約3分で測定できる無侵襲の検査機器です。IDMSは、この検査機器の活用と栄養学講習を組み合わせることで、治療家が科学的根拠に基づいた施術を提供できる環境を整えています。",
+  features: [
+    {
+      title: "短時間での測定",
+      body: "手のひらに光をあてるだけで約3分で結果が得られます。",
+    },
+    {
+      title: "必須ミネラル20元素",
+      body: "体の機能維持に必要なミネラル20種類を一度に測定できます。",
+    },
+    {
+      title: "有害金属14元素",
+      body: "水銀・鉛・カドミウム・ヒ素・アルミニウム等の蓄積量を可視化します。",
+    },
+    {
+      title: "全国の医療機関で導入",
+      body: "全国230以上の病院・歯科医院で採用されている信頼性の高い検査機器です。",
+    },
+  ],
+  context:
+    "大気汚染・化粧品・食品などから体内に蓄積される有害金属は、認知症、疲労感、めまい、睡眠障害、うつ症状などを引き起こす可能性があると指摘されています。OligoScan で現状を可視化することで、治療家は栄養学に基づいた具体的なアプローチを設計できます。",
+  pricingNote: "検査の料金や提供形態は、提携する治療院ごとに異なります。詳細はお問い合わせください。",
+} as const;
+
+/**
+ * 治療家向けに提供されているサービスLP一覧。
+ * lit.link 経由で公開されている各種ランディングページを集約。
+ */
+export type ServiceLink = {
+  id: string;
+  title: string;
+  subtitle: string;
+  description: string;
+  url: string;
+  audience: "practitioner" | "patient";
+};
+
+export const serviceLinks: ServiceLink[] = [
+  {
+    id: "origoscan",
+    title: "売上・利益改善 / OligoScan活用",
+    subtitle: "Sales & Profit Improvement",
+    description:
+      "OligoScan を活用して治療院の売上・利益を改善するためのプログラム。検査機器の使い方から、メニュー設計、集客までを支援します。",
+    url: "https://idms.or.jp/origoscan/",
+    audience: "practitioner",
+  },
+  {
+    id: "blood-test",
+    title: "血液検査の読み解きと改善",
+    subtitle: "Blood Test Improvement",
+    description:
+      "血液検査のデータを正しく読み解き、栄養学に基づいた改善アプローチを設計するための講座。",
+    url: "https://idms.or.jp/blood_test",
+    audience: "practitioner",
+  },
+  {
+    id: "sleep",
+    title: "睡眠の質を脳幹から変える講座",
+    subtitle: "Sleep Improvement",
+    description:
+      "睡眠の質を根本的に改善するためのアプローチを学ぶ、治療家向けの専門講座です。",
+    url: "https://idms.or.jp/sleep_improvement/",
+    audience: "practitioner",
+  },
+  {
+    id: "study-group",
+    title: "勉強会・堀川塾",
+    subtitle: "Study Group",
+    description:
+      "「治療院を満員にする秘訣」を学ぶ、治療家向けの実践的な勉強会。週4回のZOOM開催を継続しています。",
+    url: "https://idms.or.jp/offer/",
+    audience: "practitioner",
+  },
+  {
+    id: "footcare",
+    title: "全く新しい外反母趾の根本改善",
+    subtitle: "Foot Care",
+    description:
+      "外反母趾の根本改善を目指す、一般顧客向けの施術プログラム。西田辺の提携院で受けられます。",
+    url: "https://idms.or.jp/footcare_lp/nishitanabe/",
+    audience: "patient",
+  },
+];

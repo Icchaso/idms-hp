@@ -25,6 +25,7 @@ export const site = {
     title: "代表理事",
   },
   social: {
+    line: "https://lin.ee/sOp6b62",
     instagram: "https://www.instagram.com/kazu890717/",
     facebook: "https://www.facebook.com/kazunori.hirose.79",
     litlink: "https://lit.link/IDMS",
@@ -37,6 +38,7 @@ export type SiteConfig = typeof site;
 export const navigation = [
   { label: "学会について", href: "/about" },
   { label: "事業内容", href: "/business" },
+  { label: "ネットワーク", href: "/network" },
   { label: "実績・沿革", href: "/history" },
   { label: "法人概要", href: "/company" },
   { label: "お問い合わせ", href: "/contact" },

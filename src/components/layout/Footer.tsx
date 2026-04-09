@@ -70,6 +70,16 @@ export function Footer() {
             <ul className="flex flex-col gap-3">
               <li>
                 <a
+                  href={site.social.line}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-sm text-navy-100 hover:text-gold-300 transition-colors"
+                >
+                  LINE公式アカウント
+                </a>
+              </li>
+              <li>
+                <a
                   href={site.social.instagram}
                   target="_blank"
                   rel="noopener noreferrer"
