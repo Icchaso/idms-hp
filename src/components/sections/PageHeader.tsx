@@ -14,7 +14,7 @@ type PageHeaderProps = {
 export function PageHeader({ eyebrow, title, description }: PageHeaderProps) {
   return (
     <section className="bg-navy-900 text-white relative overflow-hidden">
-      <div className="absolute inset-0 opacity-[0.06]" aria-hidden="true">
+      <div className="absolute inset-0 opacity-[0.08]" aria-hidden="true">
         <div className="absolute -top-20 -right-20 w-80 h-80 rounded-full border border-gold-500 animate-slow-spin" />
         <div className="absolute -top-10 -right-10 w-60 h-60 rounded-full border border-gold-500 animate-slow-spin-reverse" />
       </div>
