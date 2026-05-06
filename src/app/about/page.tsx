@@ -25,7 +25,7 @@ export default function AboutPage() {
       <section className="bg-white overflow-hidden">
         {/* モバイル：写真をフルブリードで表示（lg以上では非表示） */}
         <div className="relative lg:hidden">
-          <div className="relative aspect-[4/5] max-h-[70vh]">
+          <div className="relative aspect-[4/3] max-h-[45vh]">
             <Image
               src="/images/representative.png"
               alt={`${site.representative.title} ${site.representative.name}`}
