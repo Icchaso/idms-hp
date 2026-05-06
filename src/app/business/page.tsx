@@ -75,7 +75,9 @@ export default function BusinessPage() {
                 Inspection Equipment
               </span>
               <h2 className="font-serif text-3xl sm:text-4xl font-bold text-white leading-tight mt-4">
-                {oligoScan.name}
+                OligoScan
+                <br />
+                <span className="text-2xl sm:text-3xl">（オリゴスキャン）</span>
               </h2>
               <span className="block h-px w-12 bg-gold-500 mt-6" aria-hidden="true" />
               <p className="text-base text-navy-100 leading-loose mt-6">{oligoScan.tagline}</p>
