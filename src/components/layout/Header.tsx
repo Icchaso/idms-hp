@@ -65,11 +65,11 @@ export function Header() {
                 scrolled ? "h-10 w-10 lg:h-11 lg:w-11" : "h-11 w-11 lg:h-14 lg:w-14",
               )}
             />
-            <span className="hidden sm:flex flex-col leading-tight">
-              <span className="font-serif text-sm lg:text-base font-bold text-navy-900 tracking-wider">
+            <span className="flex flex-col leading-tight">
+              <span className="font-serif text-xs sm:text-sm lg:text-base font-bold text-navy-900 tracking-wider">
                 {site.name}
               </span>
-              <span className="text-[10px] lg:text-xs text-mute tracking-widest">
+              <span className="text-[8px] sm:text-[10px] lg:text-xs text-mute tracking-widest">
                 {site.nameEn}
               </span>
             </span>
