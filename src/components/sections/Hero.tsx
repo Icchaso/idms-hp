@@ -18,7 +18,7 @@ export function Hero() {
         alt=""
         fill
         priority
-        className="object-cover opacity-20"
+        className="object-cover opacity-10 lg:opacity-20"
         sizes="100vw"
       />
       {/* グラデーションオーバーレイ */}
@@ -35,7 +35,7 @@ export function Hero() {
 
       {/* モバイル用：ロゴを透かしとして背景に配置（lg以上では非表示） */}
       <div className="absolute inset-0 flex items-center justify-end lg:hidden" aria-hidden="true">
-        <div className="relative w-72 h-72 -mr-12 opacity-[0.08]">
+        <div className="relative w-64 h-64 -mr-16 opacity-[0.06]">
           <Image
             src="/images/logo-mark.jpg"
             alt=""
