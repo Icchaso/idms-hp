@@ -35,7 +35,7 @@ export default function AboutPage() {
               priority
             />
             {/* 下部グラデーション：写真 → 白に溶け込む */}
-            <div className="absolute inset-0 bg-gradient-to-t from-white via-white/40 to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-t from-white from-5% via-white/60 via-25% to-transparent to-45%" />
             {/* 左下にネームプレート */}
             <div className="absolute bottom-6 left-0 right-0 px-6">
               <span className="font-serif text-xs uppercase tracking-[0.3em] text-gold-600">
