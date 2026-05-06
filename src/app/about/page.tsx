@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { Container } from "@/components/layout/Container";
 import { PageHeader } from "@/components/sections/PageHeader";
 import { CtaBanner } from "@/components/sections/CtaBanner";
@@ -20,17 +21,52 @@ export default function AboutPage() {
         description="東洋医学と西洋医学の融合による新しい医療のかたちを追求する、私たちの理念をご紹介します。"
       />
 
-      {/* 代表挨拶 */}
-      <section className="py-20 lg:py-32 bg-white">
+      {/* 代表挨拶 — モバイル：写真フルブリード → テキスト / PC：横並び */}
+      <section className="bg-white overflow-hidden">
+        {/* モバイル：写真をフルブリードで表示（lg以上では非表示） */}
+        <div className="relative lg:hidden">
+          <div className="relative aspect-[4/5] max-h-[70vh]">
+            <Image
+              src="/images/representative.jpg"
+              alt={`${site.representative.title} ${site.representative.name}`}
+              fill
+              sizes="100vw"
+              className="object-cover object-top"
+              priority
+            />
+            {/* 下部グラデーション：写真 → 白に溶け込む */}
+            <div className="absolute inset-0 bg-gradient-to-t from-white via-white/40 to-transparent" />
+            {/* 左下にネームプレート */}
+            <div className="absolute bottom-6 left-0 right-0 px-6">
+              <span className="font-serif text-xs uppercase tracking-[0.3em] text-gold-600">
+                Message
+              </span>
+              <p className="font-serif text-sm tracking-wider text-mute mt-2">{site.representative.title}</p>
+              <p className="font-serif text-2xl font-bold text-navy-900 mt-1">
+                {site.representative.name}
+              </p>
+              <span className="block h-px w-10 bg-gold-500 mt-3" aria-hidden="true" />
+            </div>
+          </div>
+        </div>
+
+        {/* テキスト部分 */}
         <Container>
-          <div className="grid lg:grid-cols-12 gap-12 lg:gap-16 items-start">
-            <div className="lg:col-span-4">
-              <div className="aspect-[3/4] bg-navy-50 border border-navy-100 flex items-center justify-center text-mute text-sm">
-                <span className="text-center px-4">
-                  代表者写真
-                  <br />
-                  <span className="text-xs">（後日差し替え）</span>
-                </span>
+          <div className="grid lg:grid-cols-12 gap-12 lg:gap-16 items-start py-10 lg:py-32">
+            {/* PC用の写真（lgで表示） */}
+            <div className="hidden lg:block lg:col-span-4">
+              <div className="relative aspect-[3/4] overflow-hidden">
+                <Image
+                  src="/images/representative.jpg"
+                  alt={`${site.representative.title} ${site.representative.name}`}
+                  fill
+                  sizes="400px"
+                  className="object-cover object-top"
+                />
+                {/* 下部グラデーション */}
+                <div className="absolute inset-0 bg-gradient-to-t from-navy-900/60 via-transparent to-transparent" />
+                {/* ゴールドの縁取り */}
+                <div className="absolute inset-0 ring-1 ring-inset ring-gold-400/30" />
               </div>
               <div className="mt-6 text-center">
                 <p className="font-serif text-sm tracking-wider text-mute">{site.representative.title}</p>
@@ -44,7 +80,7 @@ export default function AboutPage() {
               <SectionHeading
                 eyebrow="Message"
                 title="代表挨拶"
-                className="mb-8"
+                className="mb-8 hidden lg:block"
               />
               <div className="prose prose-navy max-w-none text-base text-ink leading-loose space-y-6">
                 <p>
