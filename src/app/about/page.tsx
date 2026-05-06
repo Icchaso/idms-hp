@@ -27,7 +27,7 @@ export default function AboutPage() {
         <div className="relative lg:hidden">
           <div className="relative aspect-[4/5] max-h-[70vh]">
             <Image
-              src="/images/representative.jpg"
+              src="/images/representative.png"
               alt={`${site.representative.title} ${site.representative.name}`}
               fill
               sizes="100vw"
@@ -57,7 +57,7 @@ export default function AboutPage() {
             <div className="hidden lg:block lg:col-span-4">
               <div className="relative aspect-[3/4] overflow-hidden">
                 <Image
-                  src="/images/representative.jpg"
+                  src="/images/representative.png"
                   alt={`${site.representative.title} ${site.representative.name}`}
                   fill
                   sizes="400px"
