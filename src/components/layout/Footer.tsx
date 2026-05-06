@@ -17,11 +17,11 @@ export function Footer() {
           <div className="lg:col-span-5 flex flex-col gap-6">
             <Link href="/" className="inline-flex items-center gap-3" aria-label={`${site.name} トップへ`}>
               <Image
-                src="/images/logo.png"
+                src="/images/logo-mark.jpg"
                 alt=""
-                width={48}
-                height={48}
-                className="h-12 w-auto bg-white p-1"
+                width={96}
+                height={96}
+                className="h-12 w-12 rounded-full object-cover ring-1 ring-gold-400/50 shadow-[0_2px_10px_rgba(11,37,69,0.10)]"
               />
               <span className="flex flex-col leading-tight">
                 <span className="font-serif text-base font-bold tracking-wider">
