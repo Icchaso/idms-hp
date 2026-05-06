@@ -11,7 +11,7 @@ import { Button } from "@/components/ui/Button";
 import { cn } from "@/lib/utils";
 
 const inputClass =
-  "w-full px-4 py-3 bg-white border border-navy-200 text-ink text-sm focus:outline-none focus:border-navy-700 transition-colors";
+  "w-full px-4 py-3.5 bg-white border border-navy-200 text-ink text-sm focus:outline-none focus:border-navy-700 transition-colors";
 
 /**
  * お問い合わせフォーム本体。

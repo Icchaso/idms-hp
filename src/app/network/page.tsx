@@ -13,7 +13,7 @@ export const metadata: Metadata = {
 
 function NetworkCard({ entry }: { entry: NetworkEntry }) {
   return (
-    <article className="bg-white border border-navy-100 p-6 lg:p-8 flex flex-col gap-4 transition-all duration-300 hover:border-gold-400 hover:shadow-[0_8px_30px_rgba(11,37,69,0.06)]">
+    <article className="bg-white border border-navy-100 p-4 sm:p-6 lg:p-8 flex flex-col gap-4 transition-all duration-300 hover:border-gold-400 hover:shadow-[0_8px_30px_rgba(11,37,69,0.06)]">
       <div className="flex flex-col gap-1">
         <span className="font-serif text-xs uppercase tracking-[0.3em] text-gold-600">
           {entry.industry}
@@ -31,7 +31,7 @@ function NetworkCard({ entry }: { entry: NetworkEntry }) {
           {entry.highlights.map((tag) => (
             <li
               key={tag}
-              className="text-[10px] tracking-wider px-2 py-1 bg-navy-50 text-navy-900 border border-navy-100"
+              className="text-[11px] tracking-wider px-2 py-1 bg-navy-50 text-navy-900 border border-navy-100"
             >
               {tag}
             </li>

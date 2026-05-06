@@ -24,7 +24,7 @@ export function StatCard({ value, unit, label, className }: StatCardProps) {
       )}
     >
       <div className="flex items-baseline gap-1 font-serif text-navy-900 transition-transform duration-500 group-hover:scale-105">
-        <span className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-none tabular-nums">
+        <span className="text-3xl sm:text-5xl lg:text-6xl font-bold leading-none tabular-nums">
           {numeric !== null ? <CountUp value={numeric} /> : value}
         </span>
         {unit && <span className="text-lg sm:text-xl font-medium">{unit}</span>}

@@ -56,7 +56,7 @@ export function Hero() {
           </div>
 
           <div className="lg:col-span-5 flex justify-center lg:justify-end hero-fade-up hero-fade-up-6">
-            <div className="relative w-72 h-72 sm:w-88 sm:h-88 lg:w-md lg:h-112 flex items-center justify-center">
+            <div className="relative w-56 h-56 sm:w-72 sm:h-72 lg:w-md lg:h-112 flex items-center justify-center">
               {/* 外周の金色リング（ゆっくり回転） */}
               <span
                 aria-hidden="true"
@@ -74,7 +74,7 @@ export function Hero() {
               />
 
               {/* 学会エンブレムのメダリオン（白JPGを正円クロップし金縁＋ソフトグロウで紋章化） */}
-              <div className="relative w-56 h-56 sm:w-72 sm:h-72 lg:w-84 lg:h-84">
+              <div className="relative w-44 h-44 sm:w-56 sm:h-56 lg:w-84 lg:h-84">
                 {/* 背後のゴールドグロウ（メダリオンを浮かせる） */}
                 <span
                   aria-hidden="true"

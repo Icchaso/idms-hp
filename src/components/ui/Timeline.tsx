@@ -21,7 +21,7 @@ export function Timeline({ items, className }: TimelineProps) {
         className="absolute left-3 sm:left-4 top-2 bottom-2 w-px bg-navy-200"
       />
       {items.map((item, index) => (
-        <li key={`${item.date}-${index}`} className="relative pl-12 sm:pl-16 pb-10 last:pb-0">
+        <li key={`${item.date}-${index}`} className="relative pl-10 sm:pl-16 pb-10 last:pb-0">
           {/* マーカー */}
           <span
             aria-hidden="true"

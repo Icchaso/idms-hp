@@ -74,7 +74,7 @@ export function MobileMenu() {
         aria-modal="true"
         aria-label="メニュー"
         className={cn(
-          "fixed top-0 right-0 z-40 h-dvh w-full max-w-sm bg-white shadow-2xl transition-transform duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] lg:hidden",
+          "fixed top-0 right-0 z-40 h-dvh w-[85vw] max-w-sm bg-white shadow-2xl transition-transform duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] lg:hidden",
           open ? "translate-x-0" : "translate-x-full",
         )}
       >

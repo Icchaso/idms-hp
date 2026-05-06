@@ -12,7 +12,7 @@ export function Footer() {
   return (
     <footer className="bg-navy-950 text-white mt-24 lg:mt-32">
       <Container>
-        <div className="py-16 lg:py-20 grid gap-12 lg:grid-cols-12">
+        <div className="py-16 lg:py-20 grid gap-8 lg:gap-12 lg:grid-cols-12">
           {/* 法人情報 */}
           <div className="lg:col-span-5 flex flex-col gap-6">
             <Link href="/" className="inline-flex items-center gap-3" aria-label={`${site.name} トップへ`}>
