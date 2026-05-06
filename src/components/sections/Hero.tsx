@@ -4,12 +4,10 @@ import { Button } from "@/components/ui/Button";
 import { site } from "@/content/site";
 
 /**
- * TOPヒーロー。学会の理念を1ステートメントで提示。
+ * TOPヒーロー。
  *
- * - モバイル: 中央揃え縦レイアウト（ロゴ → タイトル → CTA）
+ * - モバイル: ロゴを大きな透かしとして背景に配置、テキスト中央揃え
  * - PC: 左テキスト・右ロゴの横並びレイアウト
- *
- * 背景写真 + 暗いオーバーレイで奥行きを出す。
  */
 export function Hero() {
   return (
@@ -35,29 +33,38 @@ export function Hero() {
         <div className="absolute -top-16 -right-16 w-80 h-80 rounded-full border border-gold-500 animate-slow-spin-reverse" />
       </div>
 
+      {/* モバイル用：ロゴを透かしとして背景に配置（lg以上では非表示） */}
+      <div className="absolute inset-0 flex items-center justify-end lg:hidden" aria-hidden="true">
+        <div className="relative w-72 h-72 -mr-12 opacity-[0.08]">
+          <Image
+            src="/images/logo-mark.jpg"
+            alt=""
+            width={640}
+            height={640}
+            className="w-full h-full rounded-full object-cover"
+          />
+        </div>
+      </div>
+
       <Container className="relative">
-        {/* モバイル: flex縦中央 / PC: grid横並び */}
-        <div className="flex flex-col items-center text-center lg:grid lg:grid-cols-12 lg:text-left lg:items-center gap-8 lg:gap-12 py-16 sm:py-20 lg:py-32">
+        <div className="flex flex-col items-center text-center lg:grid lg:grid-cols-12 lg:text-left lg:items-center gap-8 lg:gap-12 py-20 sm:py-24 lg:py-32">
 
-          {/* ロゴ — モバイルでは上部中央、PCでは右カラム */}
-          <div className="order-1 lg:order-2 lg:col-span-5 flex justify-center lg:justify-end hero-fade-up hero-fade-up-1">
-            <div className="relative w-28 h-28 sm:w-36 sm:h-36 lg:w-md lg:h-112 flex items-center justify-center">
-              {/* 装飾リング（sm以上で表示） */}
+          {/* PC用ロゴ — lgで表示 */}
+          <div className="hidden lg:flex lg:order-2 lg:col-span-5 justify-end hero-fade-up hero-fade-up-1">
+            <div className="relative w-md h-112 flex items-center justify-center">
               <span
                 aria-hidden="true"
-                className="absolute inset-0 rounded-full border border-gold-300/30 animate-slow-spin hidden sm:block"
+                className="absolute inset-0 rounded-full border border-gold-300/30 animate-slow-spin"
               />
               <span
                 aria-hidden="true"
-                className="absolute inset-6 rounded-full border border-gold-300/20 animate-slow-spin-reverse hidden sm:block"
+                className="absolute inset-6 rounded-full border border-gold-300/20 animate-slow-spin-reverse"
               />
               <span
                 aria-hidden="true"
-                className="absolute inset-12 rounded-full border border-gold-400/15 hidden sm:block"
+                className="absolute inset-12 rounded-full border border-gold-400/15"
               />
-
-              {/* メダリオン */}
-              <div className="relative w-24 h-24 sm:w-28 sm:h-28 lg:w-84 lg:h-84">
+              <div className="relative w-84 h-84">
                 <span
                   aria-hidden="true"
                   className="absolute -inset-4 rounded-full bg-gold-300/12 blur-2xl"
@@ -75,11 +82,11 @@ export function Hero() {
           </div>
 
           {/* テキストコンテンツ */}
-          <div className="order-2 lg:order-1 lg:col-span-7 flex flex-col items-center lg:items-start gap-4 sm:gap-6">
-            <span className="font-serif text-[10px] sm:text-sm uppercase tracking-[0.3em] text-gold-300 hero-fade-up hero-fade-up-2">
+          <div className="lg:order-1 lg:col-span-7 flex flex-col items-center lg:items-start gap-4 sm:gap-6">
+            <span className="font-serif text-[10px] sm:text-sm uppercase tracking-[0.3em] text-gold-300 hero-fade-up hero-fade-up-1 lg:hero-fade-up-2">
               {site.nameEn}
             </span>
-            <h1 className="font-serif text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold leading-tight hero-fade-up hero-fade-up-3">
+            <h1 className="font-serif text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold leading-tight hero-fade-up hero-fade-up-2 lg:hero-fade-up-3">
               東洋・西洋医学の融合で、
               <br />
               <span className="text-gold-300">治療家と人々の健康</span>を
@@ -87,14 +94,14 @@ export function Hero() {
               次のステージへ。
             </h1>
             <span
-              className="block h-px w-16 bg-gold-500 hero-fade-up hero-fade-up-4"
+              className="block h-px w-16 bg-gold-500 hero-fade-up hero-fade-up-3 lg:hero-fade-up-4"
               aria-hidden="true"
             />
-            <p className="text-sm sm:text-base lg:text-lg text-navy-100 leading-relaxed max-w-xl hero-fade-up hero-fade-up-5">
+            <p className="text-sm sm:text-base lg:text-lg text-navy-100 leading-relaxed max-w-xl hero-fade-up hero-fade-up-4 lg:hero-fade-up-5">
               一般社団法人難治性疾患医学会（IDMS）は、検査機器の活用と栄養学講習を通じて、
               全国の治療家と医療機関の連携を支える学術団体です。
             </p>
-            <div className="flex gap-3 sm:gap-4 mt-2 hero-fade-up hero-fade-up-6">
+            <div className="flex gap-3 sm:gap-4 mt-2 hero-fade-up hero-fade-up-5 lg:hero-fade-up-6">
               <Button href="/about" variant="gold" size="md" className="sm:px-8 sm:py-4 sm:text-lg">
                 学会について
               </Button>
