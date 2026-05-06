@@ -20,8 +20,8 @@ export function Hero() {
       </div>
 
       <Container className="relative">
-        <div className="grid lg:grid-cols-12 gap-12 items-center py-20 lg:py-32">
-          <div className="lg:col-span-7 flex flex-col gap-6">
+        <div className="grid grid-cols-12 gap-4 sm:gap-8 lg:gap-12 items-center py-16 sm:py-20 lg:py-32">
+          <div className="col-span-8 lg:col-span-7 flex flex-col gap-4 sm:gap-6">
             <span className="font-serif text-xs sm:text-sm uppercase tracking-[0.3em] text-gold-300 hero-fade-up hero-fade-up-1">
               {site.nameEn}
             </span>
@@ -55,26 +55,26 @@ export function Hero() {
             </div>
           </div>
 
-          <div className="lg:col-span-5 flex justify-center lg:justify-end hero-fade-up hero-fade-up-6">
-            <div className="relative w-56 h-56 sm:w-72 sm:h-72 lg:w-md lg:h-112 flex items-center justify-center">
-              {/* 外周の金色リング（ゆっくり回転） */}
+          <div className="col-span-4 lg:col-span-5 flex justify-center lg:justify-end hero-fade-up hero-fade-up-6">
+            <div className="relative w-24 h-24 sm:w-56 sm:h-56 lg:w-md lg:h-112 flex items-center justify-center">
+              {/* 外周の金色リング（ゆっくり回転・モバイルでは非表示） */}
               <span
                 aria-hidden="true"
-                className="absolute inset-0 rounded-full border border-gold-300/30 animate-slow-spin"
+                className="absolute inset-0 rounded-full border border-gold-300/30 animate-slow-spin hidden sm:block"
               />
-              {/* 内周の金色リング（逆回転） */}
+              {/* 内周の金色リング（逆回転・モバイルでは非表示） */}
               <span
                 aria-hidden="true"
-                className="absolute inset-6 rounded-full border border-gold-300/20 animate-slow-spin-reverse"
+                className="absolute inset-6 rounded-full border border-gold-300/20 animate-slow-spin-reverse hidden sm:block"
               />
-              {/* 金箔の細リング（静止・装飾の締め） */}
+              {/* 金箔の細リング（静止・装飾の締め・モバイルでは非表示） */}
               <span
                 aria-hidden="true"
-                className="absolute inset-12 rounded-full border border-gold-400/15"
+                className="absolute inset-12 rounded-full border border-gold-400/15 hidden sm:block"
               />
 
               {/* 学会エンブレムのメダリオン（白JPGを正円クロップし金縁＋ソフトグロウで紋章化） */}
-              <div className="relative w-44 h-44 sm:w-56 sm:h-56 lg:w-84 lg:h-84">
+              <div className="relative w-20 h-20 sm:w-44 sm:h-44 lg:w-84 lg:h-84">
                 {/* 背後のゴールドグロウ（メダリオンを浮かせる） */}
                 <span
                   aria-hidden="true"
